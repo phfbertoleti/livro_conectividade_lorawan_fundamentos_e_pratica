@@ -1,0 +1,4 @@
+{
+    "idf.adapterTargetName": "esp32c3",
+    "idf.monitorBaudRate": "115200"
+}

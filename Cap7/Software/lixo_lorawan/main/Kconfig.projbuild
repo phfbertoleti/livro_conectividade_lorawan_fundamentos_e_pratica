@@ -1,0 +1,45 @@
+menu "Setup do LoRaWAN"
+
+    config SENSORES_LORAWAN_UART_PORT_NUM
+        int "Numero da UART para LoRaWAN"
+        range 0 2 if IDF_TARGET_ESP32   || IDF_TARGET_ESP32S3
+        range 0 1 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32C3
+        default 2 if IDF_TARGET_ESP32   || IDF_TARGET_ESP32S3
+        default 1 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32C3
+        help
+            Numero da UART a ser usada para comunicacao com modulo LoRaWAN.
+            Para portas disponiveis, veja a documentacao da UART.
+
+    config SENSORES_LORAWAN_UART_BAUD_RATE
+        int "Baudrate da UART para LoRaWAN"
+        range 1200 115200
+        default 9600
+        help
+            Baudrate da UART a ser usada para comunicacao com modulo LoRaWAN.
+
+    config SENSORES_LORAWAN_UART_RXD
+        int "RX da UART para LoRaWAN"
+        range 0 34 if IDF_TARGET_ESP32
+        range 0 46 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+        range 0 19 if IDF_TARGET_ESP32C3
+        default 23
+        help
+            GPIO para ser o RX da UART a ser usada para comunicacao com modulo LoRaWAN.
+
+    config SENSORES_LORAWAN_UART_TXD
+        int "TX da UART para LoRaWAN"
+        range 0 34 if IDF_TARGET_ESP32
+        range 0 46 if IDF_TARGET_ESP32S2 || IDF_TARGET_ESP32S3
+        range 0 19 if IDF_TARGET_ESP32C3
+        default 33
+        help
+            GPIO para ser o TX da UART a ser usada para comunicacao com modulo LoRaWAN.
+
+    config SENSORES_LORAWAN_TASK_STACK_SIZE
+        int "Tamanho da stack"
+        range 1024 16384
+        default 4096
+        help
+            Tamanho do stack para o programa.
+
+endmenu

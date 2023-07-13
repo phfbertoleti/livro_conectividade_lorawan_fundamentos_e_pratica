@@ -1,0 +1,18 @@
+{
+  "C_Cpp.intelliSenseEngine": "Tag Parser",
+  "files.associations": {
+    "*.inc": "c",
+    "array": "c",
+    "string": "c",
+    "string_view": "c",
+    "freertos.h": "c",
+    "sensor_ultrassonico.h": "c",
+    "deteccao_tamper.h": "c"
+  },
+  "idf.adapterTargetName": "esp32",
+  "cmake.configureOnOpen": false,
+  "idf.port": "/dev/ttyUSB0",
+  "idf.flashType": "UART",
+  "idf.portWin": "COM3",
+  "idf.monitorBaudRate": "115200"
+}
