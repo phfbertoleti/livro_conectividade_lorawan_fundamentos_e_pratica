@@ -103,11 +103,13 @@ static void envios_lorawan_task(void *arg)
         while (xQueuePeek(fila_contador_pulsos_1, &contador_1, TEMPO_MAX_PARA_LER_DADO_FILA) != pdPASS)
         {
             esp_task_wdt_reset();
+            vTaskDelay(10 / portTICK_PERIOD_MS);
         }
 
         while (xQueuePeek(fila_contador_pulsos_2, &contador_2, TEMPO_MAX_PARA_LER_DADO_FILA) != pdPASS)
         {
             esp_task_wdt_reset();
+            vTaskDelay(10 / portTICK_PERIOD_MS);
         }
         
         pt_byte_contador = (char *)&contador_1;
@@ -146,5 +148,8 @@ static void envios_lorawan_task(void *arg)
             grava_valor_contador_nvs(CHAVE_NVS_CONTADOR_2, contador_2);
             total_de_envios = 0;
         }
+
+        /* Aguarda 10ms para reiniciar o ciclo */
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
